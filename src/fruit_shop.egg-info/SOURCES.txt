@@ -1,0 +1,11 @@
+README.md
+pyproject.toml
+src/config.py
+src/core/db.py
+src/fruit_shop.egg-info/PKG-INFO
+src/fruit_shop.egg-info/SOURCES.txt
+src/fruit_shop.egg-info/dependency_links.txt
+src/fruit_shop.egg-info/requires.txt
+src/fruit_shop.egg-info/top_level.txt
+src/models/fruit.py
+src/schemas/fruit.py
