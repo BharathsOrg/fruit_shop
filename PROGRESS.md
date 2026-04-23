@@ -19,13 +19,14 @@
 - [x] Implement Kustomize (Base & Local Overlays) for K8s
 - [x] Define `fruit_shop_sdlc_cycle` skill
 
-## Phase 4: Business Logic & API Routes (In Progress)
+## Phase 4: Business Logic & API Routes (Complete)
 - [x] Implement FastAPI router and entry point (`main.py`)
-- [ ] Implement CRUD logic (`src/crud/crud_fruit.py`)
+- [x] Implement CRUD logic (`src/crud/crud_fruit.py`)
 
 ## Phase 5: Testing (In Progress)
 - [x] Create `tests/unit/test_api.py`
 - [x] Ensure `src` is a valid Python package (`src/__init__.py`)
+- [x] Verify `fruits` table accessibility and seed data
 - [ ] Write and execute expanded Pytest suite (Integration/End-to-end)
 
 ## 🚀 Deployment Status
