@@ -13,14 +13,16 @@
 - **Environment Management:** Optimized for `uv` and `pip`.
 
 ## 🚧 Current State & Known Issues
-- **Blocker:** Authentication failure in migrations due to `POSTGRES_PASSWORD` mismatch/missing.
-- **Current Phase:** Phase 3 (Database Migrations).
-- **Last Successful Action:** Configured `alembic/env.py` and installed `psycopg2-binary`.
+- **Status:** The application is functional and the `/health` endpoint is live.
+- **Dependency Management:** Switched from `requirements.txt` to `pyproject.toml` using `uv` for robust version control.
+- **Blocker Resolved:** Successfully implemented `src/main.py` and a `/health` endpoint to verify service availability.
+- **Current Phase:** Phase 3 (Database Migrations) - Moving toward Phase 4.
 
 ## 📂 Folder Map
 - `src/core/`: DB connection and configuration logic.
 - `src/models/`: SQLAlchemy ORM classes.
-- `src/schemas/`: Pydantic validation models.
-- `src/api/`: FastAPI route handlers.
+- `src/schemas/`: Pyd পydantic validation models.
+- `src/api/`: FastAPI route handlers (includes `v1/endpoints/health.py`).
 - `src/crud/`: Business logic for DB operations.
+- `src/main.py`: Application entry point.
 - `alembic/`: Migration scripts and environment config.

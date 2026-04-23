@@ -9,6 +9,7 @@ A production-ready, modular FastAPI service for managing a fruit inventory, feat
 - **Migrations:** Alembic for scalable schema management.
 - **Configuration:** `pydantic-settings` for robust environment variable management.
 - **Architecture:** Modular OOP-compliant structure separating concerns (Models, Schemas, CRUD, API).
+- **Health Check:** Built-in `/health` endpoint for monitoring.
 
 ## 🛠️ Tech Stack
 
@@ -17,7 +18,7 @@ A production-ready, modular FastAPI service for managing a fruit inventory, feat
 - **ORM:** SQLAlchemy
 - **Database:** PostgreSQL
 - **Migration Tool:** Alembic
-- **Dependency Management:** `uv` / `pip`
+- **Dependency Management:** `uv` (Recommended)
 
 ## 📂 Project Structure
 
@@ -26,14 +27,15 @@ fruit_shop/
 ├── alembic/            # Database migration environment
 ├── src/
 │   ├── api/            # API routes and endpoints
+│   │   └── v1/         # API Version 1
 │   ├── core/           # Database connection and configuration
 │   ├── crud/           # Business logic (CRUD operations)
+│   ├── main.py         # Application entry point
 │   ├── models/         # SQLAlchemy ORM models
 │   └── schemas/        # Pydantic validation schemas
 ├── tests/              # Pytest suite
+├── pyproject.toml      # Dependency management (uv)
 ├── alembic.ini         # Alembic configuration
-├── PROGRESS.md         # Project status and roadmap
-├── requirements.txt    # Project dependencies
 └── README.md           # Project documentation
 ```
 
@@ -52,9 +54,9 @@ export POSTGRES_PASSWORD='your_password_here'
 ```
 
 ### 3. Install Dependencies
-Using `uv` (recommended):
+Using `uv` (Recommended):
 ```bash
-uv pip install -r requirements.txt
+uv sync
 ```
 
 ### 4. Database Migrations
@@ -71,3 +73,4 @@ uvicorn src.main:app --reload
 ```
 
 The API will be available at `http://localhost:8000`. Interactive documentation can be found at `/docs`.
+- **Health Check:** `http://localhost:8000/health`
