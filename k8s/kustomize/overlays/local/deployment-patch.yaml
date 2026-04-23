@@ -1,0 +1,10 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: fruit-shop-deployment
+spec:
+  template:
+    spec:
+      containers:
+      - name: fruit-shop
+        image: us-west2-docker.pkg.dev/krishproject87/docker-images/fruits_shop:latest

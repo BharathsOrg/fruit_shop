@@ -1,0 +1,34 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: fruit-shop-deployment
+  labels:
+    app: fruit-shop
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: fruit-shop
+  template:
+    metadata:
+      labels:
+        app: fruit-shop
+    spec:
+      containers:
+      - name: fruit-shop
+        image: us-west2-docker.pkg.dev/krishproject87/docker-images/fruits_shop:latest
+        ports:
+        - containerPort: 8000
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: fruit-shop-service
+spec:
+  selector:
+    app: fruit-shop
+  ports:
+  - protocol: TCP
+    port: 80
+    targetPort: 8000
+  type: ClusterIP
