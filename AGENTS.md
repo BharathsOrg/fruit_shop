@@ -28,3 +28,17 @@ This document tracks the roles and responsibilities of the agents involved in th
     - Manage dependencies using `uv`.
     - Troubleshoot environment and connection errors.
     - Maintain project documentation (`README.md`, `MEMORY.md`, `PROGRESS.md`).
+
+### 4. Tester Agent
+- **Role:** Quality Assurance and Verification.
+- **Responsibilities:**
+    - Write and execute Pytest suites.
+    - Verify API functionality (Endpoints, Status Codes, JSON payloads).
+    - Ensure the `src` package is correctly structured for imports.
+
+### 5. CI/CD Agent
+- **Role:** Deployment and Automation.
+- **Responsibilities:**
+    - Manage Dockerfile and Containerization.
+    - Handle Kubernetes manifests and Kustomize overlays.
+    - Execute GitOps workflows (Push to trigger build/deploy).
