@@ -1,20 +1,20 @@
+from pydantic import BaseModel, EmailStr
 from typing import List, Optional
-from pydantic import BaseModel, Field
 from datetime import datetime
 
 # --- Customer Schemas ---
 class CustomerBase(BaseModel):
     name: str
-    email: str
+    email: EmailStr
     phone: Optional[str] = None
     address: Optional[str] = None
 
 class CustomerCreate(CustomerBase):
     pass
 
-class CustomerUpdate(BaseModel):
+class CustomerUpdate(CustomerBase):
     name: Optional[str] = None
-    email: Optional[str] = None
+    email: Optional[EmailStr] = None
     phone: Optional[str] = None
     address: Optional[str] = None
 
@@ -39,8 +39,8 @@ class OrderItem(OrderItemBase):
 
 class OrderBase(BaseModel):
     customer_id: int
+    status: str = "pending"
     total_amount: float
-    status: Optional[str] = "pending"
 
 class OrderCreate(OrderBase):
     items: List[OrderItemCreate]
@@ -53,14 +53,15 @@ class Order(OrderBase):
         from_attributes = True
 
 # --- Cart Schemas ---
-class CartItemCreate(BaseModel):
-    fruit_id: int
-    quantity: int = 1
-
-class CartItem(BaseModel):
-    id: int
+class CartItemBase(BaseModel):
     fruit_id: int
     quantity: int
+
+class CartItemCreate(CartItemBase):
+    pass
+
+class CartItem(CartItemBase):
+    id: int
     class Config:
         from_attributes = True
 
@@ -75,8 +76,8 @@ class Cart(BaseModel):
 class PaymentBase(BaseModel):
     order_id: int
     amount: float
+    status: str
     payment_method: str
-    status: str # e.g., 'success', 'failed'
     transaction_id: Optional[str] = None
 
 class PaymentCreate(PaymentBase):
